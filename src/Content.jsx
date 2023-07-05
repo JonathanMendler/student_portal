@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { StudentsShow } from "./StudentsShow";
 import { Modal } from "./Modal";
 
@@ -22,7 +22,8 @@ export function Content() {
   return (
     <div>
       <Modal show={isStudentsShowVisible} onClose={handleClose}>
-        + <h1>Test</h1>+{" "}
+        <h1>Test</h1>
+        <StudentsShow student={currentStudent} />
       </Modal>
     </div>
   );
