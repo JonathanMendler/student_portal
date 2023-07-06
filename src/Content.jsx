@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./Login";
@@ -15,6 +16,25 @@ export function Content() {
     setCurrentStudent(student);
   };
 
+  const handleUpdateStudent = (id, params, successCallback) => {
+    console.log("handleUpdateStudent", params);
+    axios
+      .patch(`http://localhost:3000/students/${id}.json`, params)
+      .then((response) => {
+        setStudents(
+          students.map((student) => {
+            if (student.id === response.data.id) {
+              return response.data;
+            } else {
+              return student;
+            }
+          })
+        );
+        successCallback();
+        handleClose();
+      });
+  };
+
   const handleClose = () => {
     console.log("handleClose");
     setIsStudentsShowVisible(false);
@@ -23,7 +43,10 @@ export function Content() {
   return (
     <div className="container">
       <Modal show={isStudentsShowVisible} onClose={handleClose}>
-        <StudentsShow student={currentStudent} />
+        <StudentsShow
+          student={currentStudent}
+          onUpdateStudent={handleUpdateStudent}
+        />
       </Modal>
       <Routes>
         <Route path="/login" element={<Login />} />

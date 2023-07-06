@@ -2,7 +2,7 @@ export function StudentsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdatePhoto(props.student.id, params, () => event.target.reset());
+    props.onUpdateShow(props.student.id, params, () => event.target.reset());
   };
   return (
     <div>
