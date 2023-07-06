@@ -17,10 +17,11 @@ export function Login() {
       .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
         console.log(response.data);
-        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+        axios.defaults.headers.common["Authorization"] =
+          "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
         event.target.reset();
-        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
+        window.location.href = `/students/${response.data.user_id}/`;
       })
       .catch((error) => {
         console.log(error.response);

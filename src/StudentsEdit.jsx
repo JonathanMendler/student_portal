@@ -1,4 +1,4 @@
-export function StudentsShow(props) {
+export function StudentsEdit(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -6,18 +6,6 @@ export function StudentsShow(props) {
   };
   return (
     <div>
-      <h1>Student information</h1>
-      <p>First_Name: {props.student.first_name}</p>
-      <p>Last_Name: {props.student.last_name}</p>
-      <p>Email: {props.student.email}</p>
-      <p>Phone Number: {props.student.phone_number}</p>
-      <p>Short Bio: {props.student.short_bio}</p>
-      <p>LinkedIn: {props.student.linkedin_url}</p>
-      <p>Twitter: {props.student.twitter_handle}</p>
-      <p>Personal Blog: {props.student.personal_website_url}</p>
-      <p>Online Resume: {props.student.online_resume_url}</p>
-      <p>Github URL: {props.student.github_url}</p>
-      <p>Photo: {props.student.photo}</p>
       <form onSubmit={handleSubmit}>
         <div>
           Name:{" "}
