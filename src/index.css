@@ -17,7 +17,8 @@ html {
 .sidenav {
   height: 100%;
   background-image: url("https://www.goto.com/-/media/blog/posts/products/istock-1301014432_retouched_1400-jpg.jpg");
-  background-position: center;
+  background-position-x: 75%;
+  background-position-y: 60%;
   background-size: auto;
   background-color: #000;
   overflow-x: visible;
@@ -29,19 +30,19 @@ html {
   padding: 0px 10px;
 }
 
-@media screen and (max-height: 450px) {
+/* @media screen and (max-height: 450px) { */
   .sidenav {padding-top: 15px;}
-}
+/* } */
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) { */
   .login-form{
     font-family: Georgia, 'Times New Roman', Times, serif;
       margin-top: 10%;
   }
 
-}
+/* } */
 
-@media screen and (min-width: 768px){
+/* @media screen and (min-width: 768px){ */
   .main{
       margin-left: 40%; 
   }
@@ -56,15 +57,15 @@ html {
 
   .login-form{
     font-family: Georgia, 'Times New Roman', Times, serif;
-      margin-top: 40%;
+      margin-top: 15%;
   }
-
-}
+/* } */
 
 
 .login-main-text{
   font-family: Georgia, 'Times New Roman', Times, serif;
-  margin-top: 20%;
+  margin-top: 35%;
+  margin-left: 45%;
   padding: 60px;
   color: #fff;
 }
@@ -75,6 +76,17 @@ html {
 }
 
 .btn-black{
-  background-color: #000 !important;
+  background-color: #7abaea !important;
   color: #fff;
 }
+
+/* button {
+  color: rgb(127, 178, 195);
+  background-color: #355a74;
+  box-shadow: 5px 3px 5px lightblue;
+}
+
+button:hover, button:active {
+  font-size: 125%;
+  box-shadow: 5px 3px 5px lightblue;
+} */
