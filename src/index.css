@@ -57,7 +57,7 @@ html {
 
   .login-form{
     font-family: Georgia, 'Times New Roman', Times, serif;
-      margin-top: 15%;
+      margin-top: 65%;
   }
 /* } */
 
@@ -78,15 +78,16 @@ html {
 .btn-black{
   background-color: #7abaea !important;
   color: #fff;
+  box-shadow: 5px 3px 5px lightblue;
 }
 
 /* button {
   color: rgb(127, 178, 195);
   background-color: #355a74;
   box-shadow: 5px 3px 5px lightblue;
-}
+} */
 
-button:hover, button:active {
+/* button:hover, button:active {
   font-size: 125%;
   box-shadow: 5px 3px 5px lightblue;
 } */
