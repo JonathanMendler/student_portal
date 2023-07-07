@@ -3,7 +3,7 @@ import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./Login";
 import { StudentsEdit } from "./StudentsEdit";
-
+import { LogoutLink } from "./Logout";
 export function Content() {
   // const currentStudent = useState({});
 
@@ -22,7 +22,7 @@ export function Content() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Login />} />
-
+        <Route path="/logoutlink" element={<LogoutLink />} />
         <Route
           path="/students/:id/edit"
           element={

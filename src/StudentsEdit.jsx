@@ -13,7 +13,7 @@ export function StudentsEdit(props) {
       });
   };
 
-  useEffect(handleShowStudent, []);
+  useEffect(handleShowStudent, [params.id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

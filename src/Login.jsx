@@ -20,7 +20,7 @@ export function Login() {
         ] = `Bearer ${response.data.jwt}`;
         localStorage.setItem("jwt", response.data.jwt);
         event.target.reset();
-        window.location.href = `/students/${response.data.user_id}/`;
+        window.location.href = `http://localhost:5000/`;
       })
       .catch((error) => {
         console.log(error.response);
