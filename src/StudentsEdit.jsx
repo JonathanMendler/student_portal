@@ -1,8 +1,24 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 export function StudentsEdit(props) {
+  const [student, setStudent] = useState({});
+  const params = useParams();
+
+  const handleShowStudent = () => {
+    axios
+      .get(`http://localhost:3000/students/${params.id}.json`)
+      .then((response) => {
+        setStudent(response.data);
+      });
+  };
+
+  useEffect(handleShowStudent, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdateShow(props.student.id, params, () => event.target.reset());
+    props.onUpdateStudent(student.id, params, () => event.target.reset());
   };
   return (
     <div>
@@ -10,7 +26,7 @@ export function StudentsEdit(props) {
         <div>
           Name:{" "}
           <input
-            defaultValue={props.student.first_name}
+            defaultValue={student.first_name}
             name="first_name"
             type="text"
           />
@@ -18,19 +34,18 @@ export function StudentsEdit(props) {
         <div>
           Last Name:{" "}
           <input
-            defaultValue={props.student.last_name}
+            defaultValue={student.last_name}
             name="last_name"
             type="text"
           />
         </div>
         <div>
-          Email:{" "}
-          <input defaultValue={props.student.email} name="email" type="text" />
+          Email: <input defaultValue={student.email} name="email" type="text" />
         </div>
         <div>
           Phone Number:{" "}
           <input
-            defaultValue={props.student.phone_number}
+            defaultValue={student.phone_number}
             name="phone_number"
             type="text"
           />
@@ -38,7 +53,7 @@ export function StudentsEdit(props) {
         <div>
           Short Bio:{" "}
           <textarea
-            defaultValue={props.student.short_bio}
+            defaultValue={student.short_bio}
             name="short_bio"
             rows="4"
           />
@@ -46,7 +61,7 @@ export function StudentsEdit(props) {
         <div>
           LinkedIn:{" "}
           <input
-            defaultValue={props.student.linkedin_url}
+            defaultValue={student.linkedin_url}
             name="linkedin_url"
             type="text"
           />
@@ -54,7 +69,7 @@ export function StudentsEdit(props) {
         <div>
           Twitter:{" "}
           <input
-            defaultValue={props.student.twitter_handle}
+            defaultValue={student.twitter_handle}
             name="twitter_handle"
             type="text"
           />
@@ -62,7 +77,7 @@ export function StudentsEdit(props) {
         <div>
           Personal Blog:{" "}
           <input
-            defaultValue={props.student.personal_website_url}
+            defaultValue={student.personal_website_url}
             name="personal_website_url"
             type="text"
           />
@@ -70,7 +85,7 @@ export function StudentsEdit(props) {
         <div>
           Online Resume:{" "}
           <input
-            defaultValue={props.student.online_resume_url}
+            defaultValue={student.online_resume_url}
             name="online_resume_url"
             type="text"
           />
@@ -78,14 +93,13 @@ export function StudentsEdit(props) {
         <div>
           Github URL:{" "}
           <input
-            defaultValue={props.student.github_url}
+            defaultValue={student.github_url}
             name="github_url"
             type="text"
           />
         </div>
         <div>
-          Photo:{" "}
-          <input defaultValue={props.student.photo} name="photo" type="text" />
+          Photo: <input defaultValue={student.photo} name="photo" type="text" />
         </div>
         <button type="submit">Update student</button>
       </form>
